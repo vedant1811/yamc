@@ -4,12 +4,12 @@
     
     {{#ionHeaderBar class="bar-stable"}}
       <button class="button button-clear button-assertive ion-navicon"></button>
-      <h1 class="title">User: {{> loginButtons}}</h1>
+      <h1 class="title">Chat with instano</h1>
       <button class="button button-clear button-assertive ion-camera"></button>
     {{/ionHeaderBar}}
 
     {{#ionContent class="content-stable"}}
-    <div class ="initMsg">5 operators online! Chat to begin </div>
+    <div class ="initMsg">{{> loginButtons}}</div>
     {{> messages }}
     {{/ionContent}}
    
