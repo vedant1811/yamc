@@ -1,5 +1,5 @@
 Router.configure({
-  layoutTemplate: 'app'
+  layoutTemplate: 'container'
 });
 
 Router.route('/:client', function() {
