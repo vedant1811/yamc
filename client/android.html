@@ -4,30 +4,18 @@
     
     {{#ionHeaderBar class="bar-stable"}}
       <button class="button button-clear button-assertive ion-navicon"></button>
-      <h1 class="title">Yet another Magic Clone</h1>
+      <h1 class="title">User: {{> loginButtons}}</h1>
       <button class="button button-clear button-assertive ion-camera"></button>
     {{/ionHeaderBar}}
 
     {{#ionContent class="content-stable"}}
     <div class ="initMsg">5 operators online! Chat to begin </div>
-        <div  class="messages">
-          
-          <div class="message" >
-            <span>testmessage</span>
-          </div>
-
-          <div class="time" >time</div>
-         </div>
+    {{> messages }}
     {{/ionContent}}
    
       {{#ionFooterBar class="bar-stable item-input-inset" }}
     
-      <label class="item-input-wrapper">
-        <input type="text" placeholder="Type your message" />
-      </label>
-      <button class="button button-clear" ng-click="sendMessage()">
-        Send
-      </button>
+    {{> footer}}
     {{/ionFooterBar}}
      
   </div>
