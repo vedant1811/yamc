@@ -1,5 +1,5 @@
 Template.messages.helpers({
-  messages: Messages.find({})
+    messages: Messages.find({})
 });
 
 Template.registerHelper('currentChannel', function () {
