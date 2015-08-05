@@ -2,7 +2,7 @@
 	<div class="messages">
 		{{#if Template.subscriptionsReady}}
 			{{#each messages}}
-				{{> message body=body timestamp=timestamp }}
+				{{> message body=body timeStamp=timeStamp }}
 			{{/each}}
 		{{else}}
 			Loading…

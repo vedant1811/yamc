@@ -1,16 +1,13 @@
-Router.configure({
-    layoutTemplate: 'container'
-});
-
-Router.route('/user', function() {
-    this.render('android'); // 'operator' or 'user'
-  
-});
-
-Router.route('/operator', function() {
-    this.render('operator'); // 'operator' or 'user'
+Router.route('/:route', function() {
+    if (Meteor.user() || this.params.route == 'log_in')
+        this.render(this.params.route); // 'operator' or 'user' or 'log_in'
+    else
+        this.redirect('/log_in');
 });
 
 Router.route('/', function() {
-    this.redirect('/user');
+    if (Meteor.user())
+        this.redirect('/user');
+    else
+        this.redirect('/log_in');
 });

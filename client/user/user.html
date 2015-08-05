@@ -1,7 +1,23 @@
 <template name="user">
-  <div class="main">
-    {{> loginButtons}}
-    {{> messages}}
+    {{#ionBody}}
+    <div class="pane messaging-view">
+    
+    {{#ionHeaderBar class="bar-stable"}}
+      <button class="button button-clear button-assertive ion-navicon"></button>
+      <h1 class="title">Chat with instano</h1>
+      <button class="button button-clear button-assertive ion-camera"></button>
+    {{/ionHeaderBar}}
+
+    {{#ionContent class="content-stable"}}
+    <div class ="initMsg">{{> loginButtons}}</div>
+    {{> messages }}
+    {{/ionContent}}
+   
+      {{#ionFooterBar class="bar-stable item-input-inset" }}
+    
+    {{> footer}}
+    {{/ionFooterBar}}
+     
   </div>
-  {{> footer}}
+  {{/ionBody}}
 </template>

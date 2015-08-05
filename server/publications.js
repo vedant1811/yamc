@@ -1,5 +1,5 @@
-Meteor.publish('messages', function (channelId) {
-    if (!channelId)
-        throw new Error('channelId undefined');
-    return Messages.find({channelId: channelId});
+Meteor.publish('messages', function (conversationId) {
+    if (!conversationId)
+        throw new Error('conversationId undefined');
+    return Messages.find({conversationId: conversationId});
 });
