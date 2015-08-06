@@ -1,6 +1,6 @@
 Meteor.methods({
     newMessage: function (body, conversationId) {
-        // assset Meteor.userId() is a user
+        // TODO: assset Meteor.userId() is a user and conversationId is the correct one
         var message = {
             timeStamp: Date.now(),
             from: Meteor.userId(),
@@ -18,7 +18,7 @@ Meteor.methods({
        } else {
            conversation = {
                userId: userId,
-               operatorId: 'default',
+               operatorId: getFreeOperator()._id,
                isActive: true,
                createdAt: Date.now()
            };

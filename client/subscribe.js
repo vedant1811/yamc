@@ -1,7 +1,10 @@
 Template.messages.onCreated(function() {
     var self = this;
     self.autorun(function() {
-        Log('subscribing to ' + Session.get('conversationId'));
-        self.subscribe('messages', Session.get('conversationId'));
+        var conversationId = Session.get('conversationId');
+        if (conversationId) {
+            Log('subscribing to ' + conversationId);
+            self.subscribe('messages', conversationId);
+       }
     });
 });
