@@ -10,19 +10,30 @@ Meteor.methods({
         Messages.insert(message);
     },
     
-   getActiveConversationId: function (userId) {
+   getActiveConversationId: function () {
        // TODO: add logic
-       var conversation = Conversations.findOne({userId: userId});
-       if (conversation) {
-           return conversation._id;
+       var user = Meteor.user();
+       if (!user) {
+           Log('getActiveConversationId user is null');
+           return;
+       }
+       
+       if (user.profile && user.profile.isOperator) {
+           return getConversationForOperator(user)._id;
        } else {
-           conversation = {
-               userId: userId,
-               operatorId: getFreeOperator()._id,
-               isActive: true,
-               createdAt: Date.now()
-           };
-           return Conversations.insert(conversation); // returns the unique _id
+           var userId = user._id
+           var conversation = Conversations.findOne({userId: userId});
+           if (conversation) {
+               return conversation._id;
+           } else {
+               conversation = {
+                   userId: userId,
+                   operatorId: getFreeOperator()._id,
+                   isActive: true,
+                   createdAt: Date.now()
+               };
+               return Conversations.insert(conversation); // returns the unique _id
+           }
        }
    }
 });

@@ -6,8 +6,11 @@ Router.route('/:route', function() {
 });
 
 Router.route('/', function() {
-    if (Meteor.user())
-        this.redirect('/user');
-    else
+    var user = Meteor.user();
+    if (!user)
         this.redirect('/log_in');
+    else if (user.profile.isOperator)
+        this.redirect('/operator');
+    else
+        this.redirect('/user');
 });
