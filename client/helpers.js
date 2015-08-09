@@ -2,8 +2,8 @@ Template.messages.helpers({
     messages: Messages.find({})
 });
 
-Template.registerHelper('currentChannel', function () {
-	return Session.get('channel');
+Template.conversations.helpers({
+    conversations: Conversations.find({})
 });
 
 Template.registerHelper("timestampToTime", function (timestamp) {

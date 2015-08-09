@@ -4,7 +4,7 @@ Accounts.onLogin(function() {
         if (!err) {
             Session.setAuth('conversationId', result);
             Log('setting conversationId to ' + result);
-            if (Meteor.user().profile.isOperator)
+            if (Meteor.user().profile && Meteor.user().profile.isOperator)
                 Router.go('/operator');
             else
                 Router.go('/user');

@@ -9,7 +9,7 @@ Router.route('/', function() {
     var user = Meteor.user();
     if (!user)
         this.redirect('/log_in');
-    else if (user.profile.isOperator)
+    else if (user.profile && user.profile.isOperator)
         this.redirect('/operator');
     else
         this.redirect('/user');

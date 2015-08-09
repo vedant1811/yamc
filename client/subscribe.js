@@ -8,3 +8,11 @@ Template.messages.onCreated(function() {
        }
     });
 });
+
+Template.conversations.onCreated(function() {
+    var self = this;
+    self.autorun(function() {
+        Log('subscribing to conversations');
+        self.subscribe('conversations');
+    });
+});

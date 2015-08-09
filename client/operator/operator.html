@@ -10,13 +10,14 @@
 
     {{#ionContent class="content-stable"}}
     <div class ="initMsg">{{> loginButtons}}</div>
-    {{> messages }}
-    {{/ionContent}}
-   
-      {{#ionFooterBar class="bar-stable item-input-inset" }}
-    
-    {{> footer}}
-    {{/ionFooterBar}}
+        {{> conversations}}
+        {{> messages }}
+        {{/ionContent}}
+
+        {{#ionFooterBar class="bar-stable item-input-inset" }}
+
+        {{> footer}}
+        {{/ionFooterBar}}
      
   </div>
   {{/ionBody}}
