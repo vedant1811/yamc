@@ -1,8 +1,19 @@
-Router.route('/:route', function() {
-    if (Meteor.user() || this.params.route == 'log_in')
-        this.render(this.params.route); // 'operator' or 'user' or 'log_in'
-    else
+Router.route('/log_in', function() {
+    this.render('log_in');
+});
+
+Router.route('/user/:conversationId', function() {
+    if (!Meteor.user())
         this.redirect('/log_in');
+    
+    this.render('user');
+});
+
+Router.route('/operator/:conversationId', function() {
+    if (!Meteor.user())
+        this.redirect('/log_in');
+    
+    this.render('operator');
 });
 
 Router.route('/', function() {

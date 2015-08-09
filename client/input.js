@@ -19,10 +19,11 @@ Template.conversation.events({
     'click .button': function(e) {
         var conversationId = e.target.textContent;
         Log('conversationClicked ' + conversationId);
+        Router.go('/operator/' + conversationId);
     }
 });
 
 function sendMessage() {
-    Meteor.call('newMessage', $('.android-input-box_text').val(), Session.get('conversationId'));
+    Meteor.call('newMessage', $('.android-input-box_text').val(), getCurrentConversationId());
     $('.android-input-box_text').val("");
 }
