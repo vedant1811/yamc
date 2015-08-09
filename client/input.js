@@ -9,6 +9,16 @@ Template.footer.events({
                 return false;
             }    
         }
+    },
+    'click .button': function(e) {
+        sendMessage();
+    }
+});
+
+Template.conversation.events({
+    'click .button': function(e) {
+        var conversationId = e.target.textContent;
+        Log('conversationClicked ' + conversationId);
     }
 });
 
