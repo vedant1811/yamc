@@ -1,0 +1,29 @@
+{
+    "cordova": {
+        "APP_ID": "470431293120792",
+        "APP_NAME": "instano",
+        "secret": "82a2be2294b74ccdcd94d5c104ded937"
+    },
+    "permissions": [
+        "public_profile",
+        "user_interests",
+        "user_activities",
+        "user_photos",
+        "read_friendlists",
+        "user_friends",
+        "email"
+    ],
+    "profileFields": [
+        "id",
+        "name",
+        "gender",
+        "location",
+        "email",
+        "first_name",
+        "last_name",
+        "link",
+        "username",
+        "locale",
+        "age_range"
+    ]
+}
