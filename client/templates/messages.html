@@ -1,11 +1,9 @@
 <template name="messages">
-	<div class="messages">
-		{{#if Template.subscriptionsReady}}
-			{{#each messages}}
-				{{> message body=body timeStamp=timeStamp }}
-			{{/each}}
-		{{else}}
-			Loading…
-		{{/if}}
-	</div>
+    {{#if Template.subscriptionsReady}}
+        {{#each messages}}
+            {{> message fromId=from body=body timeStamp=timeStamp }}
+        {{/each}}
+    {{else}}
+        Loading…
+    {{/if}}
 </template>

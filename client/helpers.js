@@ -6,6 +6,11 @@ Template.conversations.helpers({
     conversations: Conversations.find({})
 });
 
+Template.registerHelper("class", function(fromId) {
+    Log(fromId + Meteor.user()._id);
+    return fromId == Meteor.user()._id? 'messages':'messages other';
+});
+
 Template.registerHelper("timestampToTime", function (timestamp) {
 	var date = new Date(timestamp);
 	var hours = date.getHours();
