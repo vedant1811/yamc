@@ -20,3 +20,32 @@ getCurrentConversationId = function() {
     else
         throw new Error('conversationId is ' + id);
 }
+
+doFacebookLogin = function() {
+    var permissions = [
+        "public_profile",
+        "user_interests",
+        "user_activities",
+        "user_photos",
+        "read_friendlists",
+        "user_friends",
+        "email"
+    ];
+    
+    if (Meteor.isCordova) {
+        Log('facebookConnectPlugin.login');
+        facebookConnectPlugin.login(permissions, function(success) { // on success
+            Log(success.authResponse);
+        },
+            function(error) { // on failure
+            Log(error);
+        });
+    } else {
+        Meteor.loginWithFacebook({
+            requestPermissions: permissions
+        },
+            function(error) {
+            Log(error);
+        });
+    }
+}

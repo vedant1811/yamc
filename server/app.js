@@ -1,3 +1,14 @@
+ServiceConfiguration.configurations.upsert(
+  { service: "facebook" },
+  {
+    $set: {
+      clientId: "470431293120792",
+      loginStyle: "popup",
+      secret: "82a2be2294b74ccdcd94d5c104ded937"
+    }
+  }
+);
+
 getFreeOperator = function() {
     // TODO: add more logic to it
     return Meteor.users.findOne({'profile.isOperator': true});
